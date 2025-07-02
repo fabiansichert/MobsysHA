@@ -1,0 +1,118 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+#user-info {
+  margin-bottom: 10px;
+}
+#logout-btn {
+  margin-bottom: 20px;
+}
+#notes-board {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.note {
+  background: #fffb87;
+  padding: 15px;
+  border-radius: 8px;
+  width: 200px;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+  position: relative;
+  cursor: pointer;
+}
+.note .delete-btn {
+  position: absolute;
+  top: 5px;
+  right: 8px;
+  background: red;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+#add-note-btn {
+  width: 200px;
+  height: 150px;
+  font-size: 48px;
+  font-weight: bold;
+  color: #666;
+  background: #eee;
+  border-radius: 8px;
+  border: 2px dashed #aaa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.3s;
+  margin-top: 10px;
+}
+#add-note-btn:hover {
+  background: #ddd;
+}
+#note-modal {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.4);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+#note-modal.active {
+  display: flex;
+}
+#note-form {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+#note-form input, #note-form textarea {
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  resize: vertical;
+}
+#note-form button {
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  border: none;
+}
+#save-note-btn {
+  background: #28a745;
+  color: white;
+}
+#cancel-note-btn {
+  background: #ccc;
+}
+
+#connection-status {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-weight: bold;
+  color: white;
+  z-index: 1000;
+}
+
+#connection-status.online {
+  background-color: #28a745;
+}
+
+#connection-status.offline {
+  background-color: #dc3545;
+}
