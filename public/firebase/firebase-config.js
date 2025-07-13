@@ -24,15 +24,32 @@ enableIndexedDbPersistence(db).catch((err) => {
   }
 });
 
+// Service Worker registrieren
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/firebase-messaging-sw.js')
+    .then(reg => console.log("SW registriert:", reg))
+    .catch(err => console.error("SW Registrierung fehlgeschlagen:", err));
+}
+
+if (Notification.permission === "granted") {
+} else if (Notification.permission !== "denied") {
+  Notification.requestPermission().then(permission => {
+    if (permission === "granted") {
+    }
+  });
+}
+
+
 const loginWithGoogle = async () => {
   const provider = new GoogleAuthProvider();
   try {
     const result = await signInWithPopup(auth, provider);
     window.location.href = "dashboard.php";
   } catch (error) {
-    console.error(error.message);
+    console.error("Login fehlgeschlagen:", error.message);
   }
 };
+
 
 const logout = async () => {
   await signOut(auth);

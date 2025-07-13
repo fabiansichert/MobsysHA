@@ -1,4 +1,5 @@
 import { auth, db, onAuthStateChanged, logout } from './firebase/firebase-config.js';
+import { initNotifications, showLocalNotification } from './notify.js';
 import { collection, addDoc, onSnapshot, doc, updateDoc, deleteDoc, serverTimestamp, query, orderBy } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
 
 const adminUID = "vDAPqylOw0RcAUOnUJHPNZQwMQ23";
@@ -70,6 +71,7 @@ noteForm.addEventListener('submit', async e => {
         content,
         timestamp: serverTimestamp()
       });
+      //showLocalNotification("Notiz aktualisiert", `Die Notiz "${title}" wurde aktualisiert.`);
     } else {
       await addDoc(collection(db, 'notes'), {
         title,
@@ -77,6 +79,7 @@ noteForm.addEventListener('submit', async e => {
         timestamp: serverTimestamp(),
         createdBy: currentUser.uid
       });
+      showLocalNotification("Neue Notiz", `Die Notiz "${title}" wurde erstellt.`);
     }
     closeModal();
   } catch (error) {
