@@ -6,6 +6,6 @@
     "test": "node testApp.js"
   },
   "dependencies": {
-    "firebase": "^11.9.1"
+    "firebase": "^11.10.0"
   }
 }
