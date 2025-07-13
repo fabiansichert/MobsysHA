@@ -1,5 +1,5 @@
 import { auth, db, onAuthStateChanged, logout } from './firebase/firebase-config.js';
-import { initNotifications, showLocalNotification } from './notify.js';
+import { showLocalNotification } from './notify.js';
 import { collection, addDoc, onSnapshot, doc, updateDoc, deleteDoc, serverTimestamp, query, orderBy } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
 
 const adminUID = "vDAPqylOw0RcAUOnUJHPNZQwMQ23";
