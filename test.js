@@ -1,4 +1,4 @@
-import { adminUID } from './firebase/firebase-config.js';
+import { adminUID } from './public/firebase/firebase-config.js';
 
 export function isAdmin(uid) {
   return uid === adminUID;
